@@ -3,7 +3,7 @@ import { React, Fragment, useState, useEffect } from "react";
 //  Fim importações do React.
 
 //  Importação do ícone de Radio Button do Mui.
-import { Radio } from "@material-ui/core"
+import { Radio } from "@material-ui/core";
 //  Fim importação do ícone.
 
 //  Importação dos estilos.
@@ -19,13 +19,13 @@ import {
     Actions
 } from "./ui/ToDo/";
 import { H2, H3, H5 } from "./ui/ToDo/fonts";
-import { Input } from "./ui/ToDo/input"
+import { Input } from "./ui/ToDo/input";
 import { ReactComponent as SunIcon } from "./ui/icons/icon-sun.svg";
 import { ReactComponent as MoonIcon } from "./ui/icons/icon-moon.svg";
 //  Fim importações dos estilos.
 
 //  Importações das funcionalidades da tarefa. 
-import { sortBy } from "./useCases/sortTasksBy"
+import { sortBy } from "./useCases/sortTasksBy";
 import { removeCompletedTasks } from "./useCases/removeAllCompletedTasks";
 import { markCompleteTask } from "./useCases/completeTask";
 import { addTask } from "./useCases/addTask";
@@ -35,11 +35,11 @@ import { addTask } from "./useCases/addTask";
 let tasks = [];
 
 
-function ToDoDay() {
+function ToDo() {
     
     const [radioValue, setRadioValue] = useState(false);
     //  Estado para mudar o layout (claro e escuro)
-    const [mode, setMode] = useState("light")
+    const [mode, setMode] = useState("light");
     //  Captura o que o usuário digitou no nome da tarefa
     const [textValue, setTextValue] = useState("");
     //  ID de cada tarefa também é um estado que incrementa a cada tarefa adicionada.
@@ -53,16 +53,16 @@ function ToDoDay() {
      * @param {String} query 
      */
     function handleSortBy(query) {
-        let filtered = sortBy(query, tasks)
-        setToDos([...filtered])
+        let filtered = sortBy(query, tasks);
+        setToDos([...filtered]);
     }
     /**
      * Realiza o tratamento da açao de remover todas as tarefas
      * marcadas como "completas" e atualiza o estado delas.
      */
     function handleAllCompletedTasks() {
-        tasks = removeCompletedTasks(tasks)
-        setToDos([...tasks])
+        tasks = removeCompletedTasks(tasks);
+        setToDos([...tasks]);
     }
     /**
      * Realiza o tratamento da ação de marcar uma tarefa como completa.
@@ -71,9 +71,9 @@ function ToDoDay() {
      * @param {Int} e 
      */
     function handleCompleteTask(e) {
-        tasks = markCompleteTask(e, tasks)
+        tasks = markCompleteTask(e, tasks);
         setId(id - 1);
-        setToDos([...tasks])
+        setToDos([...tasks]);
     }
     /**
      * Recebe como paramêtro o array com as tarefas e faz a listagem delas, junto
@@ -117,20 +117,16 @@ function ToDoDay() {
             <ListItems key={i} value={index}></ListItems>
         );
 
-
-        const count = listItems.length;
-
         return (
             <TasksDiv>
                 {listItems}
-                {count > 0 &&
+                {listItems.length > 0 &&
                     <Actions>
-                        <H5>{count} items left</H5>
+                        <H5>{listItems.length} items left</H5>
                         <H5 onClick={() => handleSortBy("all")}>All</H5>
                         <H5 onClick={() => handleSortBy()}>Active</H5>
                         <H5 onClick={() => handleSortBy("completed")}>Completed</H5>
                         <H5 onClick={() => handleAllCompletedTasks()}>Clear Completed</H5>
-
                     </Actions>
                 }
             </TasksDiv>
@@ -142,9 +138,9 @@ function ToDoDay() {
      * @param {Int} id 
      */
     function handleAddTask(value, id) {
-        tasks = addTask(value, id, tasks)
+        tasks = addTask(value, id, tasks);
         setToDos(tasks);
-        setId(id + 1)
+        setId(id + 1);
     }
     /**
      * UseEffect para atualizar a pagina toda vez que uma tarefa for atualizada.
@@ -176,4 +172,4 @@ function ToDoDay() {
     )
 }
 
-export { ToDoDay }
+export { ToDo }

@@ -8,7 +8,7 @@
  */
 function addTask(value, id, tasks) {
     tasks[id] = [id, value];
-    return tasks
+    return tasks;
 }
 
 export { addTask }

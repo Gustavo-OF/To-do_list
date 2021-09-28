@@ -6,7 +6,7 @@
  */
 function markCompleteTask(e,tasks) {
     if (!tasks[e].includes("completed")) {
-        tasks[e].push("completed")
+        tasks[e].push("completed");
     }
     return tasks;
 }

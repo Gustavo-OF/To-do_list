@@ -19,7 +19,7 @@ function sortBy(query, tasks) {
         index[3] = "filtered"
     ));
 
-    return filtered
+    return filtered;
 }
 
 export { sortBy }

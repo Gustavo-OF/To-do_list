@@ -4,13 +4,13 @@ import {
   BrowserRouter as Router
 } from "react-router-dom"
 
-import { ToDoDay } from "./components/ToDo"
+import { ToDo } from "./components/ToDo"
 
 function App() {
   return (
     <Router>
       <Route path="/">
-        <ToDoDay></ToDoDay>
+        <ToDo></ToDo>
       </Route>
     </Router>
   );
