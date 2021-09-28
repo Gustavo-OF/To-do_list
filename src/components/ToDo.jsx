@@ -86,19 +86,19 @@ function ToDo() {
             <Fragment>
                 {props.value[2]
                     ?
-                    <Tasks>
+                    <Tasks mode={mode}>
                         <Radio
                             value={props.value[0]}
                             onClick={e => handleCompleteTask(e.target.value)} />
-                        <H3><s>{props.value[1]}</s></H3>
+                        <H3 mode={mode}><s>{props.value[1]}</s></H3>
                         <Hr />
                     </Tasks>
                     :
-                    <Tasks>
+                    <Tasks mode={mode}>
                         <Radio
                             value={props.value[0]}
                             onClick={e => handleCompleteTask(e.target.value)} />
-                        <H3>{props.value[1]}</H3>
+                        <H3 mode={mode}>{props.value[1]}</H3>
                         <Hr />
                     </Tasks>
                 }
@@ -121,12 +121,12 @@ function ToDo() {
             <TasksDiv>
                 {listItems}
                 {listItems.length > 0 &&
-                    <Actions>
-                        <H5>{listItems.length} items left</H5>
-                        <H5 onClick={() => handleSortBy("all")}>All</H5>
-                        <H5 onClick={() => handleSortBy()}>Active</H5>
-                        <H5 onClick={() => handleSortBy("completed")}>Completed</H5>
-                        <H5 onClick={() => handleAllCompletedTasks()}>Clear Completed</H5>
+                    <Actions mode={mode}>
+                        <H5 mode={mode}>{listItems.length} items left</H5>
+                        <H5 mode={mode} onClick={() => handleSortBy("all")}>All</H5>
+                        <H5 mode={mode} onClick={() => handleSortBy()}>Active</H5>
+                        <H5 mode={mode} onClick={() => handleSortBy("completed")}>Completed</H5>
+                        <H5 mode={mode} onClick={() => handleAllCompletedTasks()}>Clear Completed</H5>
                     </Actions>
                 }
             </TasksDiv>
@@ -161,9 +161,9 @@ function ToDo() {
                 </Banner>
             </Background>
             <AddTasks>
-                <InputDiv>
+                <InputDiv mode={mode}>
                     <Radio checked={radioValue} onClick={() => handleAddTask(textValue, id)} />
-                    <Input onChange={e => setTextValue(e.target.value)} placeholder="Create a new task..." />
+                    <Input mode={mode} onChange={e => setTextValue(e.target.value)} placeholder="Create a new task..." />
                 </InputDiv>
             </AddTasks>
             {tasks !== [] ? tasksList(toDos) : ""}

@@ -39,10 +39,10 @@ const Footer = styled.div`
 const InputDiv = styled.div`
     width: 100%;
     height: auto;
-    background-color: #25273c;
+    background-color: ${props => (props.mode === "dark" ? "#25273c" : "#fafafa") };
     border-style: none;
     outline: none;
-    color: white;
+    //border: 1px solid red;
 `
 const TasksDiv = styled.div`
     width: 34%;
@@ -59,7 +59,7 @@ const Tasks = styled.div`
     width: 100%;
     height: 3rem auto;
     //border: 1px solid red;
-    background-color: #25273c;
+    background-color: ${props => (props.mode === "dark" ? "#25273c" : "#fafafa") };
     margin-top: -1.6%;
 `
 
@@ -70,7 +70,7 @@ const Actions = styled.div`
     display: flex;
     margin-top: -1.5%;
     display: inline-block;
-    background-color: #25273c;
+    background-color: ${props => (props.mode === "dark" ? "#25273c" : "#fafafa") };
 
 `
 

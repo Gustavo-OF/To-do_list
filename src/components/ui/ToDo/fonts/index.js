@@ -2,7 +2,7 @@ import styled from "styled-components";
 import "@fontsource/josefin-sans";
 
 const H2 = styled.h2`
-    color: #efefef;
+    color: ${props => (props.mode === "dark" ? "#25273c" : "#fafafa") };
     font-size: 30px;
     font-family: Josefin Sans;
     float: left;
@@ -12,7 +12,7 @@ const H3 = styled.h3`
     margin: -9.5% 2% 2% 14%;
     font-family: Josefin Sans;
     font-weight: 400;
-    color: #efefef;
+    color: ${props => (props.mode === "dark" ? "#fafafa" : "#25273c") };
     padding:3.5% 0 0% 0%;
 `
 const H5 = styled.h5    `

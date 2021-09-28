@@ -3,10 +3,10 @@ import styled from "styled-components"
 const Input = styled.input`
     width: 85%;
     height: 95%;
-    background-color: #25273c;
+    background-color: ${props => (props.mode === "dark" ? "#25273c" : "#fafafa") };
     border-style: none;
     outline: none;
-    color: white;
+    color: ${props => (props.mode === "dark" ? "white" : "black") };
     float: right;
 `
 
