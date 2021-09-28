@@ -13,15 +13,17 @@ const H3 = styled.h3`
     font-family: Josefin Sans;
     font-weight: 400;
     color: #efefef;
-    padding:2% 0 0% 0%;
+    padding:3.5% 0 0% 0%;
 `
 const H5 = styled.h5    `
     text-align: left;
     font-family: Josefin Sans;
     color: grey;
     margin-left: 3%;
-    margin-right: 7%;
+    margin-right: 1%;
     display: inline-block;
+    padding-left: 1%;
+
 `
 
 export { H2,H3,H5 }
