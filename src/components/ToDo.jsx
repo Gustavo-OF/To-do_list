@@ -16,7 +16,9 @@ import {
     TasksDiv,
     Tasks,
     Hr,
-    Actions
+    Actions,
+    ActionsMobile,
+    SortMobile
 } from "./ui/ToDo/";
 import { H2, H3, H5 } from "./ui/ToDo/fonts";
 import { Input } from "./ui/ToDo/input";
@@ -24,7 +26,7 @@ import { ReactComponent as SunIcon } from "./ui/icons/icon-sun.svg";
 import { ReactComponent as MoonIcon } from "./ui/icons/icon-moon.svg";
 //  Fim importações dos estilos.
 
-//  Importações das funcionalidades da tarefa. 
+//  Importações das funcionalidades. 
 import { sortBy } from "./useCases/sortTasksBy";
 import { removeCompletedTasks } from "./useCases/removeAllCompletedTasks";
 import { markCompleteTask } from "./useCases/completeTask";
@@ -108,7 +110,7 @@ function ToDo() {
     /**
      * Recebe como paramêtro o array inteiro, sem estar desestruturado, e faz a chamada 
      * do ListItems() para realizar a listagem, junto com as ações de filtro.
-     * @param {*} props 
+     * @param {Array} props 
      * @returns 
      */
     function tasksList(props) {
@@ -121,6 +123,7 @@ function ToDo() {
             <TasksDiv>
                 {listItems}
                 {listItems.length > 0 &&
+                <Fragment>
                     <Actions mode={mode}>
                         <H5 mode={mode}>{listItems.length} items left</H5>
                         <H5 mode={mode} onClick={() => handleSortBy("all")}>All</H5>
@@ -128,6 +131,16 @@ function ToDo() {
                         <H5 mode={mode} onClick={() => handleSortBy("completed")}>Completed</H5>
                         <H5 mode={mode} onClick={() => handleAllCompletedTasks()}>Clear Completed</H5>
                     </Actions>
+                    <ActionsMobile mode={mode}>
+                    <H5 mode={mode}>{listItems.length} items left</H5>
+                    <H5 mode={mode} onClick={() => handleAllCompletedTasks()} style={{float: "right"}}>Clear Completed</H5>
+                    <SortMobile mode={mode}> 
+                        <H5 mode={mode} onClick={() => handleSortBy("all")}>All</H5>
+                        <H5 mode={mode} onClick={() => handleSortBy()}>Active</H5>
+                        <H5 mode={mode} onClick={() => handleSortBy("completed")}>Completed</H5>
+                    </SortMobile>
+                    </ActionsMobile>
+                </Fragment>
                 }
             </TasksDiv>
         )

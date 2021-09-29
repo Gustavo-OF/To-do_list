@@ -8,6 +8,11 @@ const Input = styled.input`
     outline: none;
     color: ${props => (props.mode === "dark" ? "white" : "black") };
     float: right;
+    @media(max-width: 800px) {
+        height: 87%;
+        width: 80%;
+        flex-direction: column;
+  }
 `
 
 export { Input }

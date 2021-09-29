@@ -14,15 +14,21 @@ const H3 = styled.h3`
     font-weight: 400;
     color: ${props => (props.mode === "dark" ? "#fafafa" : "#25273c") };
     padding:3.5% 0 0% 0%;
+    @media(max-width: 800px) {
+        height: 25%;
+        width: 76%;
+        flex-direction: column;
+        position: absolute;
+        margin-top: -14%;
+        margin-left: 18%;
+  }
 `
 const H5 = styled.h5    `
     text-align: left;
     font-family: Josefin Sans;
     color: grey;
-    margin-left: 3%;
-    margin-right: 1%;
     display: inline-block;
-    padding-left: 1%;
+    padding: 1% 4% 0% 4%;
 
 `
 
